@@ -6,7 +6,7 @@
     <title>Dashboard Multistream</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Carga de la librería hls.js necesaria para streams .m3u8 -->
-    <script src="[https://cdn.jsdelivr.net/npm/hls.js@latest](https://cdn.jsdelivr.net/npm/hls.js@latest)"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
     <div class="app-layout">
@@ -27,7 +27,7 @@
                 <div class="media-wrapper">
                     <!-- Reemplaza 'westcol' por tu canal objetivo -->
                     <iframe 
-                        src="[https://player.kick.com/westcol](https://player.kick.com/westcol)" 
+                        src="https://player.kick.com/pedacitosdeterror" 
                         allowfullscreen 
                         scrolling="no">
                     </iframe>
@@ -39,7 +39,7 @@
                 <div class="media-wrapper">
                     <!-- Reemplaza 'westcol' por tu canal objetivo -->
                     <iframe 
-                        src="[https://kick.com/popout/westcol/chat](https://kick.com/popout/westcol/chat)" 
+                        src="https://kick.com/popout/pedacitosdeterror/chat" 
                         scrolling="no">
                     </iframe>
                 </div>
@@ -51,7 +51,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('mainPlayer');
-            const videoSrc = '[https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8](https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8)';
+            const videoSrc = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
 
             if (Hls.isSupported()) {
                 const hls = new Hls();
