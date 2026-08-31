@@ -9,47 +9,60 @@ html, body {
     height: 100vh;
     background-color: #0e0e10;
     color: #efeff1;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
     overflow: hidden;
 }
 
-/* Grilla principal */
+/* Layout Principal: 2 Columnas */
 .app-layout {
-    display: grid;
-    grid-template-columns: 1fr 380px; /* Columna izquierda flexible, derecha fija de 380px */
-    grid-template-rows: 215px 1fr;   /* Fila superior de 215px (16:9 de Twitch), inferior ocupa el resto */
-    grid-template-areas: 
-        "kick twitch"
-        "kick chat";
-    gap: 12px;
-    padding: 12px;
+    display: flex;
     height: 100vh;
     width: 100vw;
+    gap: 12px;
+    padding: 12px;
     background-color: #000000;
 }
 
-/* Asignación de áreas a la grilla */
+/* Columna Izquierda: Video Kick (Ocupa todo el alto y espacio disponible) */
 .main-kick {
-    grid-area: kick;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Evita desbordamiento horizontal */
 }
 
+/* Columna Derecha: Contenedor vertical para Twitch + Chat */
+.sidebar {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+/* Twitch: Alto fijo basado en relación de aspecto 16:9 para 380px de ancho */
 .side-twitch {
-    grid-area: twitch;
+    height: 213px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
 }
 
+/* Chat: Ocupa todo el alto restante de la columna derecha */
 .side-chat {
-    grid-area: chat;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 /* Estilos de las Tarjetas */
 .card {
-    display: flex;
-    flex-direction: column;
     background-color: #18181b;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #2d2d35;
-    min-height: 0; /* Permite que los elementos dentro de Grid/Flex no se desborden */
 }
 
 .card-header {
@@ -58,13 +71,11 @@ html, body {
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
     color: #adadb8;
     border-bottom: 1px solid #2d2d35;
-    flex-shrink: 0; /* Evita que el header se encoja */
+    flex-shrink: 0;
 }
 
-/* Wrapper del iframe */
 .media-wrapper {
     position: relative;
     flex: 1;
