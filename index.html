@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Multistream</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Carga de la librería hls.js necesaria para streams .m3u8 -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body>
     <div class="app-layout">
-        <!-- Columna Izquierda: Video Principal -->
-        <main class="main-content">
+        <!-- Columna de Video (Izquierda/Centro) -->
+        <main class="video-container">
+            <!-- Fuente Principal (MiluLive o reproductor HLS personalizado) -->
             <section class="video-card main-stream">
                 <div class="card-header">Video Principal</div>
                 <div class="media-wrapper">
-                    <video id="mainPlayer" controls autoplay playsinline muted></video>
+                    <!-- Si usas hls.js, la etiqueta video carga el manifest m3u8 -->
+                    <video id="mainPlayer" controls autoplay playsinline>
+                        <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegurl">
+                        Tu navegador no soporta reproducción HLS.
+                    </video>
                 </div>
             </section>
-        </main>
 
-        <!-- Columna Derecha: Stream Secundario Kick + Chat -->
-        <aside class="sidebar">
+            <!-- Fuente Secundaria (Kick Stream) -->
             <section class="video-card secondary-stream">
                 <div class="card-header">Kick - Stream Secundario</div>
                 <div class="media-wrapper">
-                    <!-- Reemplaza 'westcol' por tu canal objetivo -->
+                    <!-- Reemplaza 'tu_canal_kick' por el nombre real del canal -->
                     <iframe 
                         src="https://player.kick.com/pedacitosdeterror" 
                         allowfullscreen 
@@ -33,43 +34,17 @@
                     </iframe>
                 </div>
             </section>
+        </main>
 
-            <section class="chat-card">
-                <div class="card-header">Chat de Kick</div>
-                <div class="media-wrapper">
-                    <!-- Reemplaza 'westcol' por tu canal objetivo -->
-                    <iframe 
-                        src="https://kick.com/popout/pedacitosdeterror/chat" 
-                        scrolling="no">
-                    </iframe>
-                </div>
-            </section>
+        <!-- Columna de Chat (Derecha) -->
+        <aside class="chat-container">
+            <div class="card-header">Chat de Kick</div>
+            <!-- Reemplaza 'tu_canal_kick' por el nombre real del canal -->
+            <iframe 
+                src="https://kick.com/popout/pedacitosdeterror/chat" 
+                scrolling="no">
+            </iframe>
         </aside>
     </div>
-
-    <!-- Inicialización del reproductor HLS -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.getElementById('mainPlayer');
-            const videoSrc = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
-
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(videoSrc);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, () => {
-                    video.play().catch(() => {
-                        console.log('Autoplay bloqueado. El usuario debe interactuar para reproducir audio.');
-                    });
-                });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                // Soporte nativo para Safari iOS/macOS
-                video.src = videoSrc;
-                video.addEventListener('loadedmetadata', () => {
-                    video.play();
-                });
-            }
-        });
-    </script>
 </body>
 </html>
