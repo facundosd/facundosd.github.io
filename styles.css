@@ -16,19 +16,38 @@ body {
     display: flex;
     height: 100vh;
     width: 100vw;
-}
-
-/* Sección de reproductores */
-.video-container {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
     gap: 12px;
     padding: 12px;
     background-color: #000000;
 }
 
-.video-card {
+/* Columna Izquierda - Video Principal */
+.main-content {
+    flex: 1;
+    display: flex;
+}
+
+.main-stream {
+    width: 100%;
+    height: 100%;
+}
+
+/* Columna Derecha - Sidebar (Video Secundario + Chat) */
+.sidebar {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Proporción de la barra lateral */
+.secondary-stream {
+    height: 215px; /* Mantiene formato 16:9 para 380px de ancho */
+    flex-shrink: 0;
+}
+
+.chat-card {
+    flex: 1;
     display: flex;
     flex-direction: column;
     background-color: #18181b;
@@ -37,13 +56,14 @@ body {
     border: 1px solid #2d2d35;
 }
 
-/* Proporciones de las pantallas */
-.main-stream {
-    flex: 2; /* Ocupa 2/3 del alto disponible */
-}
-
-.secondary-stream {
-    flex: 1; /* Ocupa 1/3 del alto disponible */
+/* Estilos comunes para tarjetas */
+.video-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #18181b;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2d2d35;
 }
 
 .card-header {
@@ -69,21 +89,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-/* Sección del chat */
-.chat-container {
-    width: 340px;
-    display: flex;
-    flex-direction: column;
-    background-color: #18181b;
-    border-left: 1px solid #2d2d35;
-}
-
-.chat-container iframe {
     width: 100%;
     height: 100%;
     border: none;
