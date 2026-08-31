@@ -9,11 +9,11 @@
 <body>
     <div class="app-layout">
         <!-- Columna de Video (Izquierda/Centro) -->
-        <main class="video-container">
-            <!-- Fuente Principal (MiluLive o reproductor HLS personalizado) -->
+        <main class="main-content">
             <section class="video-card main-stream">
-                <div class="card-header">Video Principal</div>
+                <div class="card-header">Video Principal (Twitch)</div>
                 <div class="media-wrapper">
+                    <!-- Si la página se sirve desde un dominio real, cambia parent=localhost por parent=tudominio.com -->
                     <iframe 
                         src="https://player.twitch.tv/?channel=pedacitosdeterror&enableExtensions=true&muted=true&parent=localhost&player=popout&quality=1080p&volume=0.09" 
                         allowfullscreen 
@@ -21,6 +21,7 @@
                     </iframe>
                 </div>
             </section>
+        </main>
 
             <!-- Fuente Secundaria (Kick Stream) -->
             <section class="video-card secondary-stream">
