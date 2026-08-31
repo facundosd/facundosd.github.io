@@ -8,26 +8,10 @@
 </head>
 <body>
     <div class="app-layout">
-        <!-- Columna Principal: Video Principal Twitch (Izquierda) -->
+        <!-- Columna Izquierda: Video Principal (Kick) -->
         <main class="main-content">
             <section class="video-card main-stream">
-                <div class="card-header">Video Principal (Twitch)</div>
-                <div class="media-wrapper">
-                    <!-- Recuerda: Si la página la subes a un servidor real, cambia parent=localhost por tu dominio (ej: parent=tudominio.com) -->
-                    <iframe 
-                        src="https://player.twitch.tv/?channel=pedacitosdeterror&enableExtensions=true&muted=true&parent=localhost&player=popout&quality=1080p&volume=0.09" 
-                        allowfullscreen 
-                        scrolling="no">
-                    </iframe>
-                </div>
-            </section>
-        </main>
-
-        <!-- Columna Secundaria: Kick Stream + Chat (Derecha) -->
-        <aside class="sidebar">
-            <!-- Stream Secundario Kick -->
-            <section class="video-card secondary-stream">
-                <div class="card-header">Kick - Stream Secundario</div>
+                <div class="card-header">Video Kick</div>
                 <div class="media-wrapper">
                     <iframe 
                         src="https://player.kick.com/pedacitosdeterror" 
@@ -36,10 +20,26 @@
                     </iframe>
                 </div>
             </section>
+        </main>
 
-            <!-- Chat de Kick -->
+        <!-- Columna Derecha: Video Twitch + Chat de Kick -->
+        <aside class="sidebar">
+            <!-- Video Twitch (Arriba) -->
+            <section class="video-card secondary-stream">
+                <div class="card-header">Video Twitch</div>
+                <div class="media-wrapper">
+                    <!-- Si la página se sirve desde un dominio real, cambia parent=localhost por tu dominio -->
+                    <iframe 
+                        src="https://player.twitch.tv/?channel=pedacitosdeterror&enableExtensions=true&muted=true&parent=localhost&player=popout&quality=1080p&volume=0.09" 
+                        allowfullscreen 
+                        scrolling="no">
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Chat de Kick (Abajo) -->
             <section class="chat-card">
-                <div class="card-header">Chat de Kick</div>
+                <div class="card-header">Chat</div>
                 <div class="media-wrapper">
                     <iframe 
                         src="https://kick.com/popout/pedacitosdeterror/chat" 
