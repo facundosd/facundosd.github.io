@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
-    <title>Mi primera página</title>
-  </head>
-  <body>
-    <h1>¡Hola mundo!</h1>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Multistream</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Columna de Video (Izquierda/Centro) -->
+        <main class="video-container">
+            <!-- Fuente Principal (MiluLive o reproductor HLS personalizado) -->
+            <section class="video-card main-stream">
+                <div class="card-header">Video Principal</div>
+                <div class="media-wrapper">
+                    <!-- Si usas hls.js, la etiqueta video carga el manifest m3u8 -->
+                    <video id="mainPlayer" controls autoplay playsinline>
+                        <source src="https://cdn.milulive.com/hls/public/ts:abr.m3u8" type="application/x-mpegurl">
+                        Tu navegador no soporta reproducción HLS.
+                    </video>
+                </div>
+            </section>
+
+            <!-- Fuente Secundaria (Kick Stream) -->
+            <section class="video-card secondary-stream">
+                <div class="card-header">Kick - Stream Secundario</div>
+                <div class="media-wrapper">
+                    <!-- Reemplaza 'tu_canal_kick' por el nombre real del canal -->
+                    <iframe 
+                        src="https://player.kick.com/tu_canal_kick" 
+                        allowfullscreen 
+                        scrolling="no">
+                    </iframe>
+                </div>
+            </section>
+        </main>
+
+        <!-- Columna de Chat (Derecha) -->
+        <aside class="chat-container">
+            <div class="card-header">Chat de Kick</div>
+            <!-- Reemplaza 'tu_canal_kick' por el nombre real del canal -->
+            <iframe 
+                src="https://kick.com/popout/tu_canal_kick/chat" 
+                scrolling="no">
+            </iframe>
+        </aside>
+    </div>
+</body>
 </html>
