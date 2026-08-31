@@ -4,65 +4,52 @@
     padding: 0;
 }
 
-body {
+html, body {
+    width: 100%;
+    height: 100vh;
     background-color: #0e0e10;
     color: #efeff1;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    height: 100vh;
     overflow: hidden;
 }
 
+/* Grilla principal */
 .app-layout {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Columna izquierda flexible, derecha fija de 380px */
+    grid-template-rows: 215px 1fr;   /* Fila superior de 215px (16:9 de Twitch), inferior ocupa el resto */
+    grid-template-areas: 
+        "kick twitch"
+        "kick chat";
     gap: 12px;
     padding: 12px;
+    height: 100vh;
+    width: 100vw;
     background-color: #000000;
 }
 
-/* Columna Izquierda - Video Kick */
-.main-content {
-    flex: 1;
-    display: flex;
+/* Asignación de áreas a la grilla */
+.main-kick {
+    grid-area: kick;
 }
 
-.main-stream {
-    width: 100%;
-    height: 100%;
+.side-twitch {
+    grid-area: twitch;
 }
 
-/* Columna Derecha - Twitch (Arriba) y Chat (Abajo) */
-.sidebar {
-    width: 380px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.side-chat {
+    grid-area: chat;
 }
 
-.secondary-stream {
-    height: 215px; /* Mantiene proporción 16:9 para los 380px de ancho */
-    flex-shrink: 0;
-}
-
-.chat-card {
-    flex: 1;
+/* Estilos de las Tarjetas */
+.card {
     display: flex;
     flex-direction: column;
     background-color: #18181b;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #2d2d35;
-}
-
-/* Estilos de Tarjetas */
-.video-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #18181b;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #2d2d35;
+    min-height: 0; /* Permite que los elementos dentro de Grid/Flex no se desborden */
 }
 
 .card-header {
@@ -74,10 +61,13 @@ body {
     letter-spacing: 0.5px;
     color: #adadb8;
     border-bottom: 1px solid #2d2d35;
+    flex-shrink: 0; /* Evita que el header se encoja */
 }
 
+/* Wrapper del iframe */
 .media-wrapper {
     position: relative;
+    flex: 1;
     width: 100%;
     height: 100%;
     background-color: #000;
