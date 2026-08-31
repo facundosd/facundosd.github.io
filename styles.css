@@ -21,6 +21,7 @@ body {
     background-color: #000000;
 }
 
+/* Columna Izquierda - Video Kick */
 .main-content {
     flex: 1;
     display: flex;
@@ -31,6 +32,7 @@ body {
     height: 100%;
 }
 
+/* Columna Derecha - Twitch (Arriba) y Chat (Abajo) */
 .sidebar {
     width: 380px;
     display: flex;
@@ -39,7 +41,7 @@ body {
 }
 
 .secondary-stream {
-    height: 215px;
+    height: 215px; /* Mantiene proporción 16:9 para los 380px de ancho */
     flex-shrink: 0;
 }
 
@@ -53,6 +55,7 @@ body {
     border: 1px solid #2d2d35;
 }
 
+/* Estilos de Tarjetas */
 .video-card {
     display: flex;
     flex-direction: column;
