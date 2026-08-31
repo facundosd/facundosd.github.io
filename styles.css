@@ -13,51 +13,51 @@ html, body {
     overflow: hidden;
 }
 
-/* Layout Principal: 2 Columnas */
+/* Layout Principal de 2 columnas */
 .app-layout {
     display: flex;
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     gap: 12px;
     padding: 12px;
     background-color: #000000;
 }
 
-/* Columna Izquierda: Video Kick (Ocupa todo el alto y espacio disponible) */
+/* Columna Izquierda (Kick) */
 .main-kick {
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-width: 0; /* Evita desbordamiento horizontal */
+    height: 100%;
+    min-width: 0;
 }
 
-/* Columna Derecha: Contenedor vertical para Twitch + Chat */
+/* Columna Derecha (Twitch + Chat) */
 .sidebar {
     width: 380px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 12px;
-    height: 100%;
     flex-shrink: 0;
 }
 
-/* Twitch: Alto fijo basado en relación de aspecto 16:9 para 380px de ancho */
+/* Secciones individuales */
 .side-twitch {
-    height: 213px;
+    height: 213px; /* Proporción 16:9 exacta para 380px */
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
 }
 
-/* Chat: Ocupa todo el alto restante de la columna derecha */
 .side-chat {
     flex: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0;
+    min-height: 0; /* Permite que el chat se expanda verticalmente */
 }
 
-/* Estilos de las Tarjetas */
+/* Estilos de Tarjetas */
 .card {
     background-color: #18181b;
     border-radius: 8px;
@@ -76,6 +76,7 @@ html, body {
     flex-shrink: 0;
 }
 
+/* Contenedor adaptativo del iframe */
 .media-wrapper {
     position: relative;
     flex: 1;
