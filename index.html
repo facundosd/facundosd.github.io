@@ -8,42 +8,45 @@
 </head>
 <body>
     <div class="app-layout">
-        <!-- Columna de Video (Izquierda/Centro) -->
-        <main class="video-container">
-            <!-- Fuente Principal (MiluLive o reproductor HLS personalizado) -->
+        <!-- Columna Principal: Video (Izquierda) -->
+        <main class="main-content">
             <section class="video-card main-stream">
                 <div class="card-header">Video Principal</div>
                 <div class="media-wrapper">
-                    <!-- Si usas hls.js, la etiqueta video carga el manifest m3u8 -->
                     <video id="mainPlayer" controls autoplay playsinline>
-                        <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegurl">
+                        <source src="https://cdn.milulive.com/hls/public/ts:abr.m3u8" type="application/x-mpegurl">
                         Tu navegador no soporta reproducción HLS.
                     </video>
                 </div>
             </section>
+        </main>
 
-            <!-- Fuente Secundaria (Kick Stream) -->
+        <!-- Columna Secundaria: Kick Stream + Chat (Derecha) -->
+        <aside class="sidebar">
+            <!-- Kick Stream Secundario -->
             <section class="video-card secondary-stream">
                 <div class="card-header">Kick - Stream Secundario</div>
                 <div class="media-wrapper">
-                    <!-- Reemplaza 'tu_canal_kick' por el nombre real del canal -->
+                    <!-- Reemplaza 'tu_canal_kick' por el canal real -->
                     <iframe 
-                        src="https://player.kick.com/pedacitosdeterror" 
+                        src="https://player.kick.com/tu_canal_kick" 
                         allowfullscreen 
                         scrolling="no">
                     </iframe>
                 </div>
             </section>
-        </main>
 
-        <!-- Columna de Chat (Derecha) -->
-        <aside class="chat-container">
-            <div class="card-header">Chat de Kick</div>
-            <!-- Reemplaza 'tu_canal_kick' por el nombre real del canal -->
-            <iframe 
-                src="https://kick.com/popout/pedacitosdeterror/chat" 
-                scrolling="no">
-            </iframe>
+            <!-- Chat de Kick -->
+            <section class="chat-card">
+                <div class="card-header">Chat de Kick</div>
+                <div class="media-wrapper">
+                    <!-- Reemplaza 'tu_canal_kick' por el canal real -->
+                    <iframe 
+                        src="https://kick.com/popout/tu_canal_kick/chat" 
+                        scrolling="no">
+                    </iframe>
+                </div>
+            </section>
         </aside>
     </div>
 </body>
