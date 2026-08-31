@@ -8,46 +8,41 @@
 </head>
 <body>
     <div class="app-layout">
-        <!-- Columna Izquierda: Video Principal (Kick) -->
-        <main class="main-content">
-            <section class="video-card main-stream">
-                <div class="card-header">Video Kick</div>
-                <div class="media-wrapper">
-                    <iframe 
-                        src="https://player.kick.com/pedacitosdeterror" 
-                        allowfullscreen 
-                        scrolling="no">
-                    </iframe>
-                </div>
-            </section>
-        </main>
+        <!-- Video Principal (Kick) -->
+        <section class="card main-kick">
+            <div class="card-header">Video Kick</div>
+            <div class="media-wrapper">
+                <iframe 
+                    src="https://player.kick.com/pedacitosdeterror" 
+                    allowfullscreen 
+                    scrolling="no">
+                </iframe>
+            </div>
+        </section>
 
-        <!-- Columna Derecha: Video Twitch + Chat de Kick -->
-        <aside class="sidebar">
-            <!-- Video Twitch (Arriba) -->
-            <section class="video-card secondary-stream">
-                <div class="card-header">Video Twitch</div>
-                <div class="media-wrapper">
-                    <!-- Si la página se sirve desde un dominio real, cambia parent=localhost por tu dominio -->
-                    <iframe 
-                        src="https://player.twitch.tv/?channel=pedacitosdeterror&enableExtensions=true&muted=true&parent=localhost&player=popout&quality=1080p&volume=0.09" 
-                        allowfullscreen 
-                        scrolling="no">
-                    </iframe>
-                </div>
-            </section>
+        <!-- Video Secundario (Twitch) -->
+        <section class="card side-twitch">
+            <div class="card-header">Video Twitch</div>
+            <div class="media-wrapper">
+                <!-- Cambia parent=localhost por tu dominio en producción -->
+                <iframe 
+                    src="https://player.twitch.tv/?channel=pedacitosdeterror&enableExtensions=true&muted=true&parent=localhost&player=popout&quality=1080p&volume=0.09" 
+                    allowfullscreen 
+                    scrolling="no">
+                </iframe>
+            </div>
+        </section>
 
-            <!-- Chat de Kick (Abajo) -->
-            <section class="chat-card">
-                <div class="card-header">Chat</div>
-                <div class="media-wrapper">
-                    <iframe 
-                        src="https://kick.com/popout/pedacitosdeterror/chat" 
-                        scrolling="no">
-                    </iframe>
-                </div>
-            </section>
-        </aside>
+        <!-- Chat de Kick -->
+        <section class="card side-chat">
+            <div class="card-header">Chat</div>
+            <div class="media-wrapper">
+                <iframe 
+                    src="https://kick.com/popout/pedacitosdeterror/chat" 
+                    scrolling="no">
+                </iframe>
+            </div>
+        </section>
     </div>
 </body>
 </html>
